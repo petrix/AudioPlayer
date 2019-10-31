@@ -1,0 +1,108 @@
+<!-- <div class = "component invisible"> -->
+<aside>
+      <div class="preamp">
+        <label>preamp</label>
+        <div id="range-slider">
+
+
+          <div class="preamp-sliders">
+            <div class="preamp-slider preamp1">
+              <input type="range" id="preamp1" orient="vertical" min="0" max="100" step="5" />
+              <div class="preamp-slider__bar"></div>
+              <div class="preamp-slider__thumb">100</div>
+            </div>
+            <div class="preamp-slider preamp2">
+              <input type="range" id="preamp2" orient="vertical" min="0" max="100" step="5" />
+              <div class="preamp-slider__bar"></div>
+              <div class="preamp-slider__thumb">100</div>
+            </div>
+          </div>
+
+          <div id="slider-range"></div>
+        </div>
+
+      </div>
+    </aside>
+    <main>
+
+      <div class="presets">
+        <button class="play" id="play">PLAY</button>
+        <button class="stop" id="stop">STOP</button>
+        <label>Presets:</label>
+        <select name="Custom" id="presets">
+          <option value="custom">Custom</option>
+          <option value="rock">Rock</option>
+          <option value="pop">Pop</option>
+          <option value="pop">Classical</option>
+          <option value="pop">Disco</option>
+        </select>
+        <button class="reset">Reset</button>
+      </div>
+      <div class="sliders">
+        <svg preserveAspectRatio="none" viewBox="0 0 140 100">
+          <path d="" class="line-shadow"></path>
+          <path d="" class="line"></path>
+        </svg>
+
+        <div class="range-slider">
+          <input type="range" orient="vertical" min="0" max="100" step="5" />
+          <div class="range-slider__bar"></div>
+          <div class="range-slider__thumb">0</div>
+        </div>
+
+        <div class="range-slider">
+          <input type="range" orient="vertical" min="0" max="100" step="5" />
+          <div class="range-slider__bar"></div>
+          <div class="range-slider__thumb">0</div>
+        </div>
+
+        <div class="range-slider">
+          <input type="range" orient="vertical" min="0" max="100" step="5" />
+          <div class="range-slider__bar"></div>
+          <div class="range-slider__thumb">0</div>
+        </div>
+
+        <div class="range-slider">
+          <input type="range" orient="vertical" min="0" max="100" step="5" />
+          <div class="range-slider__bar"></div>
+          <div class="range-slider__thumb">0</div>
+        </div>
+
+        <div class="range-slider">
+          <input type="range" orient="vertical" min="0" max="100" step="5" />
+          <div class="range-slider__bar"></div>
+          <div class="range-slider__thumb">0</div>
+        </div>
+
+        <div class="range-slider">
+          <input type="range" orient="vertical" min="0" max="100" step="5" />
+          <div class="range-slider__bar"></div>
+          <div class="range-slider__thumb">0</div>
+        </div>
+
+        <div class="range-slider">
+          <input type="range" orient="vertical" min="0" max="100" step="5" />
+          <div class="range-slider__bar"></div>
+          <div class="range-slider__thumb">0</div>
+        </div>
+
+      </div>
+      <section class="convolver">
+        <legend>Convolver</legend>
+        <fieldset id="echo_list">
+
+          <div><label for="no_sound"><input type="radio" name="echo" id="no_sound" checked />no effect</label></div>
+        </fieldset>
+        <div class="conv-slider conv-gain">
+          <input id="convolverGain" type="range" orient="vertical" step="10" value="100" min="0" max="300" />
+          <div class="conv-slider__bar"></div>
+          <div class="conv-slider__thumb">40</div>
+        </div>
+        <div class="conv-slider direct-gain">
+          <input id="directGain" type="range" orient="vertical" step="10" value="100" min="0" max="100" />
+          <div class="conv-slider__bar"></div>
+          <div class="conv-slider__thumb">50</div>
+        </div>
+      </section>
+    </main>
+    <!-- </div> -->

@@ -1,0 +1,29 @@
+{
+  "name": "audio-3plus",
+  "version": "1.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify js/app.js -t scssify > bundle.js",
+    "watch": "watchify js/app.js -t scssify -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://p3xx.tk:3000/p3xx/audio-3plus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "jquery": "^3.3.1",
+    "scssify": "^3.0.1",
+    "uglify-js": "^3.4.9",
+    "watchify": "^3.11.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "platform": "^1.3.5",
+    "socket.io": "^2.2.0",
+    "stats.js": "^0.17.0"
+  }
+}

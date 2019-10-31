@@ -1,0 +1,32 @@
+{
+  "name": "NRG-player",
+  "displayName": "NRG-player",
+  "version": "1.2.2",
+  "description": "The visual installation of artist <.p3xx.VJ> for on-line radio BRATAN-NRG.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:NRG-player"
+  ],
+  "author": "p3xx",
+  "license": "GPL",
+  "dependencies": {
+    "cordova-android": "^8.0.0",
+    "cordova-plugin-nativeaudio": "^3.0.9",
+    "cordova-plugin-whitelist": "1"
+  },
+  "devDependencies": {
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-nativeaudio": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
+}

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="p3xx" />
+  <title>NRG-player</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicons/web_hi_res_512.png">
+  <meta name="msapplication-TileColor" content="#000000">
+  <!-- <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png"> -->
+  <meta name="theme-color" content="#000000">
+
+  <style>
+    .splashscreen {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100vh;
+      overscroll-behavior: contain;
+      overflow: hidden;
+    }
+
+    body {
+      background-color: black;
+      margin: 0 auto;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font: 16px sans-serif;
+      background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(150, 150, 195) 50%, rgb(0, 0, 0) 100%);
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="splashscreen"></section>
+  <section class="showMenuButton visible">
+    <div>hide</div>
+  </section>
+  <section class="showRequest">
+    <div>request</div>
+  </section>
+  <audio class="audio" preload="none" crossorigin="anonymous">
+
+  </audio>
+  <div class="mainwindow">
+    <div class="component">
+      <aside>
+        <div class="preamp">
+          <label>preamp</label>
+          <!-- <div id="range-slider"> -->
+
+          <div class="preamp-sliders">
+            <div class="preamp-slider amp-input">
+              <input type="range" id="amp-input" orient="vertical" min="0" max="100" step="5" value="50" />
+              <div class="preamp-slider__bar"></div>
+              <div class="preamp-slider__thumb">75</div>
+            </div>
+            <div class="preamp-slider amp-output">
+              <input type="range" id="amp-output" orient="vertical" min="0" max="100" step="5" value="50" />
+              <div class="preamp-slider__bar"></div>
+              <div class="preamp-slider__thumb">75</div>
+            </div>
+          </div>
+          <!-- </div> -->
+
+          <!-- <label>Echo presets:</label> -->
+          <div class="convSelector">
+            <div class="select">
+              <select name="no_preset" id="echo_list">
+                <option value="no_preset">No effect</option>
+              </select>
+              <!-- <div class="select_arrow"></div> -->
+            </div>
+            <button class="convBtn"></button>
+          </div>
+          <section class="convolver">
+            <div class="preamp-sliders">
+              <div class="preamp-slider conv-gain">
+                <input id="conv-gain" type="range" orient="vertical" step="10" value="100" min="0" max="300" />
+                <div class="preamp-slider__bar"></div>
+                <div class="preamp-slider__thumb">40</div>
+              </div>
+              <div class="preamp-slider direct-gain">
+                <input id="direct-gain" type="range" orient="vertical" step="10" value="100" min="0" max="100" />
+                <div class="preamp-slider__bar"></div>
+                <div class="preamp-slider__thumb">50</div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </aside>
+      <main>
+
+        <div class="presets">
+          <div>
+            <button class="play" id="play">PLAY</button>
+            <button class="stop" id="stop">STOP</button>
+          </div>
+          <div class="eq-selector">
+            <select name="" id="eq-selector">
+              <option value="">Custom</option>
+              <option value="hiphop">Hip-Hop</option>
+              <option value="club">Club</option>
+              <option value="p3xx">p3xx</option>
+            </select>
+          </div>
+
+          <button class="reset">Reset</button>
+        </div>
+        <label>Equalizer</label>
+        <div class="sliders">
+          <svg preserveAspectRatio="none" viewBox="0 0 140 100">
+            <path d="" class="line-shadow"></path>
+            <path d="" class="line"></path>
+          </svg>
+
+          <div class="range-slider">
+            <input type="range" orient="vertical" min="0" max="100" step="5" />
+            <div class="range-slider__bar"></div>
+            <div class="range-slider__thumb">0</div>
+          </div>
+
+          <div class="range-slider">
+            <input type="range" orient="vertical" min="0" max="100" step="5" />
+            <div class="range-slider__bar"></div>
+            <div class="range-slider__thumb">0</div>
+          </div>
+
+          <div class="range-slider">
+            <input type="range" orient="vertical" min="0" max="100" step="5" />
+            <div class="range-slider__bar"></div>
+            <div class="range-slider__thumb">0</div>
+          </div>
+
+          <div class="range-slider">
+            <input type="range" orient="vertical" min="0" max="100" step="5" />
+            <div class="range-slider__bar"></div>
+            <div class="range-slider__thumb">0</div>
+          </div>
+
+          <div class="range-slider">
+            <input type="range" orient="vertical" min="0" max="100" step="5" />
+            <div class="range-slider__bar"></div>
+            <div class="range-slider__thumb">0</div>
+          </div>
+
+          <div class="range-slider">
+            <input type="range" orient="vertical" min="0" max="100" step="5" />
+            <div class="range-slider__bar"></div>
+            <div class="range-slider__thumb">0</div>
+          </div>
+
+          <div class="range-slider">
+            <input type="range" orient="vertical" min="0" max="100" step="5" />
+            <div class="range-slider__bar"></div>
+            <div class="range-slider__thumb">0</div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+
+    <div class="song-request">
+      <iframe src="http://bratan.tk/public/bratan_energy/embed-requests" frameborder="0" allowtransparency="true"
+        style="width: 100%; height: 100%; border: 0;"></iframe>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <!-- <section class="vizualizr-controls">
+    <div class="controls">
+        <div class="field">
+
+          <input orient="vertical" type="range" name="width" value="50">
+          <div class="field__bar"></div>
+          <div class="field__thumb">100</div>
+        </div>
+        <div class="field">
+         
+          <input orient="vertical" type="range" name="height" value="50">
+           <div class="field__bar"></div>
+          <div class="field__thumb">100</div>
+        </div>
+        <div class="field">
+           
+          <input orient="vertical" type="range" name="gap" value="25">
+           <div class="field__bar"></div>
+            <div class="field__thumb">100</div>
+        </div>
+        <div class="field">
+
+          <input orient="vertical" type="range" name="delay" value="50">
+                      <div class="field__bar"></div>
+            <div class="field__thumb">100</div>
+        </div>
+        <div class="field">
+
+          <input orient="vertical" type="range" name="hue" value="100">
+          <div class="field__bar"></div>
+          <div class="field__thumb">100</div>
+        </div>
+        <div class="field">
+ 
+          <input type="radio" name="animate" value="out" > <span>Out</span>
+          <input type="radio" name="animate" value="in"> <span>In</span>
+          <input type="radio" name="animate" value="auto" checked> <span>Auto</span>
+        </div>
+        <div class="field">
+
+          <input orient="vertical" type="range" name="auto-delay" value="50">
+          <div class="field__bar"></div>
+          <div class="field__thumb">100</div>
+        </div>
+      </div>
+</section> -->
+  <canvas id="visualizer"></canvas>
+
+  <script src="./bundle.js"></script>
+</body>
+
+</html>

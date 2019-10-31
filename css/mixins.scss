@@ -1,0 +1,106 @@
+// @import './variables';
+$xs-screen: 576px;
+$sm-screen: 768px;
+$md-screen: 992px;
+$lg-screen: 1200px;
+@mixin xs-mobile {
+    @media (max-width: #{$xs-screen - 0.1px}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$sm-screen - 0.1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$md-screen - 0.1px}) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (max-width: #{$lg-screen - 0.1px}) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: #{$lg-screen}) {
+        @content;
+    }
+}
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+@mixin btn-reset-default {
+    border: none;
+    display: inline-block;
+    outline: none;
+}
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+@mixin flex-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+$slider-thumb-size: 24px;
+$slider-height: 300px;
+$slider-height-device-small:200px;
+$slider-track-thickness: 4px;
+$slider-width: 78px;
+$slider-width-middle:54px;
+$preamp-slider-height: 150px;
+$preamp-slider-height-small: 100px;
+$preamp-slider-width: 68px;
+$preamp-slider-width-middle: 50px;
+$slider-width-device-small: 28px;
+$color-theme: rgba(0, 0, 0, 0.678);
+$color-track: #83838380;
+// $color-text: lighten(#656569, 10%);
+$color-text: #b3b3b3;
+$border-radius: 10px;
+$border-color: #4F4F62;
+$border-color2: rgba(79, 79, 98, 0.9);
+// $border-color: transparent;
+
+@mixin border {
+    border: 1px solid $border-color2;
+    // border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+  
+  @mixin max-height {
+    @media(max-height: 500px) {
+      @content;
+    }
+  }
+  @mixin track {
+    border: none;
+    background: $color-track;
+    width: $slider-track-thickness;
+    border-color: $color-track;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px $color-theme;
+  }
+  
+  @mixin thumb {
+    position: relative;
+    // Increase hitbox
+    width: $slider-thumb-size*2;
+    height: $slider-thumb-size*2;
+    opacity: 0; // Hide the native styling
+  }
+  
