@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
   var convolverOUT;
   var compressor;
   var stationAddr = 'http://bratan.tk';
-  var stationId = 2;
+  var stationId = 4;
   var streamUrl;
   var spectroOffset = 0;
   var freqValues = [64, 128, 256, 512, 1024, 2048, 4096];
@@ -565,8 +565,8 @@ var zz = '';
 
         for (var z = 1; z < 3; z++) {
 
-          rect((CVS1W / 2) - (lineWidth / 2) + ((lineWidth + lineGap) * i), (CVS1H / 2) - (average / 2), lineWidth, average / 2 ** z, whiteColor);
-          rect((CVS1W / 2) - (lineWidth / 2) - ((lineWidth + lineGap) * i), (CVS1H / 2) - (average / 2), lineWidth, average / 2 ** z, whiteColor);
+          rect((CVS1W / 2) - (lineWidth / 2) + ((lineWidth + lineGap) * i), (CVS1H / 2) - (average / 2), lineWidth, average / 2 * z, whiteColor);
+          rect((CVS1W / 2) - (lineWidth / 2) - ((lineWidth + lineGap) * i), (CVS1H / 2) - (average / 2), lineWidth, average / 2 * z, whiteColor);
 
         }
 
@@ -615,8 +615,8 @@ var zz = '';
       colors = Array(10);
       colors[0] = originalColors[0];
       var lightness = 49;
-      for (var i = 9; i >= 1; i--) {
-        colors[i] = 'hsl(' + hue + ', 100%, ' + lightness + '%)';
+      for (var ii = 9; ii >= 1; ii--) {
+        colors[ii] = 'hsl(' + hue + ', 100%, ' + lightness + '%)';
         lightness -= 5;
       }
     }
