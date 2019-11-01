@@ -323,7 +323,7 @@ var platform = require('platform');
 window.addEventListener('DOMContentLoaded', () => {
 
 
-  var sPath = 'https://p3xx.tk:5000';
+  var sPath = 'https://bratan.ooo:5000';
 
   var socket = io.connect(sPath, {
     secure: true,
