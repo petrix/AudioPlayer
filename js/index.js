@@ -1,7 +1,7 @@
-// require('scssify');
+require('scssify');
 var $ = require('jquery');
-// require('../css/main.scss');
-// require('../css/convolver.scss');
+require('../css/main.scss');
+require('../css/convolver.scss');
 var _ = require('lodash');
 var app = require('./equalizer');
 var io = require('socket.io-client');
@@ -12,37 +12,39 @@ var platform = require('platform');
 window.addEventListener('DOMContentLoaded', () => {
 
 
-  var sPath = 'https://bratan.ooo:5000';
+  // var sPath = 'https://bratan.ooo:5000';
 
-  var socket = io.connect(sPath, {
-    secure: true,
-    reconnect: true,
-    rejectUnauthorized: false
-  });
+  // var socket = io.connect(sPath, {
+  //   secure: true,
+  //   reconnect: true,
+  //   rejectUnauthorized: false
+  // });
 
-  socket.on('connect', function () {
-    pushPlay();
+  // socket.on('connect', function () {
+  //   pushPlay();
 
-    var response = $.get("https://ipinfo.io", function (response) {
-      // console.log(response.ip, response.country, response.loc, response);
-      socket.emit('platformipinfo', response, platform);
-    }, "jsonp");
-    socket.on('timeofday', function (currentTime) {});
-  });
-  socket.on('disconnect', (reason) => {
-    if (reason === 'io server disconnect') {
-      console.log('disconnected');
-      socket.connect();
-    }
-  });
+  //   var response = $.get("https://ipinfo.io", function (response) {
+  //     // console.log(response.ip, response.country, response.loc, response);
+  //     socket.emit('platformipinfo', response, platform);
+  //   }, "jsonp"
+  //   // removeSplashScreen
+  //   );
+  //   socket.on('timeofday', function (currentTime) {});
+  // });
+  // socket.on('disconnect', (reason) => {
+  //   if (reason === 'io server disconnect') {
+  //     console.log('disconnected');
+  //     socket.connect();
+  //   }
+  // });
 
-
+// function removeSplashScreen(){
   $('.splashscreen').animate({
     opacity: 0
   }, 1000, function () {
     $('.splashscreen').remove();
     });
-  
+  // }
 
 
   var audioCtx;
@@ -59,7 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
   var convolverOUT;
   var compressor;
   var stationAddr = 'http://bratan.tk';
-  var stationId = 4;
+  var stationId = 0;
   var streamUrl;
   var spectroOffset = 0;
   var freqValues = [64, 128, 256, 512, 1024, 2048, 4096];
@@ -177,9 +179,15 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('echo_list').innerHTML += temp2;
 
   $.getJSON(stationAddr + '/api/stations', function (stData) {
+    // removeSplashScreen();
     streamUrl = stData[stationId].listen_url.split('?').shift();
+    var streamUrlArray = streamUrl.split('/');
+    var streamUrlModified = streamUrlArray[0] + "//" + streamUrlArray[2]+':'+streamUrlArray[4]+'/'+streamUrlArray[5];
+    console.log(streamUrlArray);
+    console.log(streamUrlModified);
+      
     $('.songtitle').html(stData[stationId].name);
-    $('audio').html('<source src="' + streamUrl + '" type="audio/mp3" />');
+    $('audio').html('<source src="' + streamUrlModified + '" type="audio/mp3" />');
 
     $('.song-request').html('<iframe src = "' + stationAddr + '/public/' + stData[stationId].shortcode + '/embed-requests" frameborder = "0" allowtransparency = "true" style = "width: 100%; height: 100%;" > < /iframe>');
   });
@@ -196,7 +204,12 @@ window.addEventListener('DOMContentLoaded', () => {
   const sliderHeight = 300;
   const convSliderHeight = 150;
 
-
+  // var gains = [].slice.call(document.querySelectorAll('.preamp-slider input'));
+  // console.log([].slice.call(document.querySelectorAll('.preamp-slider input')));
+  // gains.forEach(input => input.addEventListener('input', () => updateSlider(input)));
+  // gains.forEach(input => input.addEventListener('change', () => updateSlider(input)));
+  
+  
   $('.sliders').children().on("input change", function () {
     var rangeSliderValue = parseInt($(this).children('input').val());
     var rangeSliderNumber = $(this).index();

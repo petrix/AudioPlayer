@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "browserify js/app.js -t scssify > bundle.js",
-    "watch": "watchify js/app.js -t scssify -o bundle.js",
-    "tinyfy": "browserify -p tinyify js/app.js"
+    "build": "browserify js/index.js -t scssify > bundle.js",
+    "watch": "watchify js/index.js -t scssify -o bundle.js",
+    "tinyfy": "browserify -p tinyify js/index.js"
   },
   "repository": {
     "type": "git",

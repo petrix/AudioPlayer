@@ -268,8 +268,8 @@ module.exports = app;
 
   inputs.forEach(input => app.updateSlider(input));
   // Cross-browser support where value changes instantly as you drag the handle, therefore two event types.
-  inputs.forEach(input => input.addEventListener('input', element => app.updateSlider(input)));
-  inputs.forEach(input => input.addEventListener('change', element => app.updateSlider(input)));
+  inputs.forEach(input => input.addEventListener('input', () => app.updateSlider(input)));
+  inputs.forEach(input => input.addEventListener('change', () => app.updateSlider(input)));
   // inputs.forEach(input => input.addEventListener('input change', element => app.updateSlider(input)));
 
 
