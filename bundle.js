@@ -296,31 +296,56 @@ var platform = require('platform');
 window.addEventListener('DOMContentLoaded', () => {
 
 
-  // var sPath = 'https://bratan.ooo:5000';
+  var sPath = 'https://p3xx.tk:5000';
 
-  // var socket = io.connect(sPath, {
-  //   secure: true,
-  //   reconnect: true,
-  //   rejectUnauthorized: false
-  // });
+  var socket = io.connect(sPath, {
+    secure: true,
+    reconnect: true,
+    rejectUnauthorized: false
+  });
 
-  // socket.on('connect', function () {
-  //   pushPlay();
+  socket.on('connect', function () {
+    pushPlay();
 
-  //   var response = $.get("https://ipinfo.io", function (response) {
-  //     // console.log(response.ip, response.country, response.loc, response);
-  //     socket.emit('platformipinfo', response, platform);
-  //   }, "jsonp"
-  //   // removeSplashScreen
-  //   );
-  //   socket.on('timeofday', function (currentTime) {});
-  // });
-  // socket.on('disconnect', (reason) => {
-  //   if (reason === 'io server disconnect') {
-  //     console.log('disconnected');
-  //     socket.connect();
-  //   }
-  // });
+    var response = $.get("https://ipinfo.io", function (response) {
+      // console.log(response.ip, response.country, response.loc, response);
+      socket.emit('platformipinfo', response, platform);
+    }, "jsonp"
+    // removeSplashScreen
+    );
+    socket.on('timeofday', function (currentTime) {});
+  });
+  socket.on('disconnect', (reason) => {
+    if (reason === 'io server disconnect') {
+      console.log('disconnected');
+      socket.connect();
+    }
+  });
+  var sPath = 'https://p3xx.tk:5000';
+
+  var socket = io.connect(sPath, {
+    secure: true,
+    reconnect: true,
+    rejectUnauthorized: false
+  });
+
+  socket.on('connect', function () {
+    pushPlay();
+
+    var response = $.get("https://ipinfo.io", function (response) {
+      // console.log(response.ip, response.country, response.loc, response);
+      socket.emit('platformipinfo', response, platform);
+    }, "jsonp"
+    // removeSplashScreen
+    );
+    socket.on('timeofday', function (currentTime) {});
+  });
+  socket.on('disconnect', (reason) => {
+    if (reason === 'io server disconnect') {
+      console.log('disconnected');
+      socket.connect();
+    }
+  });
 
 // function removeSplashScreen(){
   $('.splashscreen').animate({
