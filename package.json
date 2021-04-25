@@ -15,17 +15,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browserify": "^16.2.3",
-    "jquery": "^3.3.1",
-    "scssify": "^3.0.1",
-    "tinyify": "^2.5.1",
-    "uglify-js": "^3.4.9",
-    "watchify": "^3.11.1"
+    "browserify": "*",
+    "jquery": "*",
+    "scssify": "*",
+    "tinyify": "*",
+    "uglify-js": "*",
+    "watchify": "*"
   },
   "dependencies": {
-    "lodash": "^4.17.11",
-    "platform": "^1.3.5",
-    "socket.io": "^2.2.0",
-    "stats.js": "^0.17.0"
+    "lodash": "*",
+    "platform": "*",
+    "socket.io": "*",
+    "stats.js": "*"
   }
 }
